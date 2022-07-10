@@ -1,8 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
-/*
 
+/*
+ABCD
+BCDE
+CDEF
+DEFG
 */
+
 int main(int argc, char const *argv[])
 {
     int n;
@@ -12,15 +17,14 @@ int main(int argc, char const *argv[])
     while (i <= n)
     {
         int j = 1;
-        char ch = 'A';;
         while (j <= n)
         {
-            cout < < < < " ";
+            char ch = 'A' + j + i - 1 - 1;
+            cout << ch << " ";
             j++;
         }
         cout << endl;
         i++;
     }
-
     return 0;
 }
