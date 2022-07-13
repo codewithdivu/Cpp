@@ -2,6 +2,13 @@
 // REMEMBER THIS THING IN SELECTION SORT
 // -> Find minimum element is unsorted array and swap it with element at begining
 
+ // Space Complexity ---->  0(1)
+    // Time Complexity ---->  0(n^2)
+    
+            // Best Case ----> 0(n^2)
+            // Worst Case ----> 0(n^2)
+            // Average Case ----> 0(n^2)
+
 #include <bits/stdc++.h>
 using namespace std;
 
