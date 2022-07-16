@@ -26,7 +26,7 @@ int main(int argc, char const *argv[])
     int arr[] = {1, 5, 9, 11, 55, 88, 95};
     int size = sizeof(arr) / sizeof(arr[0]);
 
-    int key = 2;
+    int key = 9;
     int start = 0;
     int end = size - 1;
 
