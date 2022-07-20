@@ -29,9 +29,7 @@ int main(int argc, char const *argv[])
         {
             if (arr[j] < arr[i])
             {
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
+                swap(arr[j],arr[i]);
             }
         }
     }
