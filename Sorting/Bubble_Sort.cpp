@@ -7,33 +7,30 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    int n;
-    cin >> n;
-
-    int arr[n];
-    for (int i = 0; i < n; i++)
+    int arr[] = {11, 65, 32, 5, 33, 78, 34, 99, 64, 23};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    for (int j = 1; j < n; j++)
     {
-        cin >> arr[i];
-    }
 
-    int counter = 1;
-    while (counter < n)
-    {
-        for (int i = 0; i < n - counter; i++)
+        bool swapped = false;
+
+        for (int i = 0; i < n - j; i++)
         {
             if (arr[i] > arr[i + 1])
             {
-                int temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
+                swap(arr[i], arr[i + 1]);
+                swapped = true; // if there is already sorted array then no need to swap simply break loop
             }
         }
-        counter++;
+        if (swapped == false)
+        {
+            break;
+        }
     }
-    
-    for (int i = 0; i < n; i++)
+
+    for (int k = 0; k < n; k++)
     {
-        cout << arr[i] << " ";
+        cout << arr[k] << " ";
     }
 
     return 0;
