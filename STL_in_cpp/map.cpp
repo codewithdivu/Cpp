@@ -1,31 +1,39 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <map>
 
-int main(int argc, char const *argv[])
+using namespace std;
+int main()
 {
     map<int, string> m;
 
-    // m.insert({1, "divyesh"});
-    // m.insert({2, "pravin"});
+    m[1] = "babbar";
+    m[13] = "kumar";
+    m[2] = "love";
 
-    // for (auto i : m)
-    // {
-    //     cout << i.first << " " << i.second << endl;
-    // }
+    m.insert({5, "bheem"});
 
-    int value;
-    string key;
-
-    for (int i = 0; i < 4; i++)
-    {
-        cin >> value;
-        cin >> key;
-        m.insert({value, key});
-    }
-    cout << endl;
+    cout << "before erase" << endl;
     for (auto i : m)
     {
         cout << i.first << " " << i.second << endl;
+    }
+
+    cout << "finding -13 -> " << m.count(-13) << endl;
+
+    // m.erase(13);
+    cout << "after erase" << endl;
+    for (auto i : m)
+    {
+        cout << i.first << " " << i.second << endl;
+    }
+    cout << endl
+         << endl;
+
+    auto it = m.find(5);
+
+    for (auto i = it; i != m.end(); i++)
+    {
+        cout << (*i).first << endl;
     }
     return 0;
 }
