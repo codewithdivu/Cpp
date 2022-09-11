@@ -1,3 +1,11 @@
+
+// Space Complexity ---->  0(1)
+// Time Complexity ---->  0(nlogn)
+
+// Best Case ----> 0(nlogn)
+// Worst Case ----> 0(nlogn)
+// Average Case ----> 0(nlogn)
+
 #include <bits/stdc++.h>
 using namespace std;
 
