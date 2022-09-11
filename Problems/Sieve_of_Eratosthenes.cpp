@@ -3,7 +3,7 @@ using namespace std;
 
 void SievePrime(int n)
 {
-    int prime[100] = {0};
+    int prime[n] = {0};
 
     for (int i = 2; i <= n; i++)
     {
@@ -16,7 +16,7 @@ void SievePrime(int n)
         }
     }
 
-    for (int  i = 2; i <= n; i++)
+    for (int i = 2; i <= n; i++)
     {
         if (prime[i] == 0)
         {

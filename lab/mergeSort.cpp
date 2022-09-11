@@ -3,7 +3,8 @@ using namespace std;
 
 void merge(int *arr, int start, int end)
 {
-    int mid = (start+end)/2;
+
+    int mid = (start + end) / 2;
     int len1 = mid - start + 1;
     int len2 = end - mid;
 
@@ -11,11 +12,14 @@ void merge(int *arr, int start, int end)
     int *second = new int[len2];
 
     int mainIndex = start;
+
     for (int i = 0; i < len1; i++)
     {
         first[i] = arr[mainIndex++];
     }
+
     mainIndex = mid + 1;
+
     for (int j = 0; j < len2; j++)
     {
         second[j] = arr[mainIndex++];
@@ -45,7 +49,6 @@ void merge(int *arr, int start, int end)
     {
         arr[mainIndex++] = second[index2++];
     }
-
     delete[] first;
     delete[] second;
 }
@@ -57,9 +60,9 @@ void mergeSort(int *arr, int start, int end)
         return;
     }
     int mid = (start + end) / 2;
-
-    mergeSort(arr, start, mid);
+    mergeSort(arr, 0, mid);
     mergeSort(arr, mid + 1, end);
+
     merge(arr, start, end);
 }
 
