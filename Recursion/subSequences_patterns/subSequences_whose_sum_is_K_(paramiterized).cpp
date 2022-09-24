@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool subSequences(int arr[], int sum, int index, int size, int key, vector<int> ds)
+/// print the all the subsequences whose sum is equal to this sum
+
+void subSequences(int arr[], int sum, int index, int size, int key, vector<int> ds)
 {
     if (index >= size)
     {
@@ -12,38 +14,24 @@ bool subSequences(int arr[], int sum, int index, int size, int key, vector<int> 
                 cout << it << " ";
             }
             cout << endl;
-            return true;
         }
-        else
-            return false;
+        return;
     }
 
     // take
     ds.push_back(arr[index]);
     sum = sum + arr[index];
-
-    if (subSequences(arr, sum, index + 1, size, key, ds) == true)
-    {
-        return true;
-    }
+    subSequences(arr, sum, index + 1, size, key, ds);
 
     // not-take
     sum = sum - arr[index];
     ds.pop_back();
-
-    if (subSequences(arr, sum, index + 1, size, key, ds) == true)
-    {
-        return true;
-    }
-
-
-    
-    return false;
+    subSequences(arr, sum, index + 1, size, key, ds);
 }
 
 int main(int argc, char const *argv[])
 {
-    int arr[] = {1, 2, 1};
+    int arr[] = {1, 3, 2};
     int key = 2;
     vector<int> ds;
     subSequences(arr, 0, 0, 3, key, ds);

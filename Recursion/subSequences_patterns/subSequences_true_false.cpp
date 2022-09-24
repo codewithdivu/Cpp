@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/// problem is print the any one subsequence whose sum is equal to this sum
+
+
 bool subSequences(int arr[], int sum, int index, int size, int key, vector<int> ds)
 {
     if (index >= size)

@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+/// problem is count total number of subSequences whose sum is equal to this sum
+
+
 int subSequences(int arr[], int sum, int index, int size, int key, int &count)
 {
     if (index >= size)
