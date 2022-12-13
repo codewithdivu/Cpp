@@ -1,31 +1,79 @@
-#include <bits/stdc++.h>
-using namespace std;
+include<bits / stdc++.h>
 
-bool subSequences(int arr[], int index, int size, vector<int> &ds, int &sum, int key)
+    using namespace std;
+
+int board[8][8];
+
+bool isPossible(int n, int row, int col)
 {
-    if (index == size)
+    for (int i = row - 1; i >= 0; i--)
     {
-        if (sum == key)
+        if (board[i][col] == 1)
         {
-            return 1;
+            return false;
         }
-
-        return 0;
+    }
+    for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--)
+    {
+        if (board[i][j] == 1)
+        {
+            return false;
+        }
     }
 
-    sum = sum + arr[index];
-    int left = subSequences(arr, index + 1, size, ds, sum, key);
+    for (int i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++)
+    {
+        if (board[i][j] == 1)
+        {
+            return false;
+        }
+    }
 
-    sum = sum - arr[index];
-    int right = subSequences(arr, index + 1, size, ds, sum, key);
-    return left + right;
+    return true;
+}
+void nQueenHelper(int n, int row)
+{
+    if (row == n)
+    {
+
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                cout << board[i][j] << " ";
+            }
+        }
+        cout << endl;
+        return;
+    }
+
+    for (int j = 0; j < n; j++)
+    {
+
+        if (isPossible(n, row, j))
+        {
+            board[row][j] = 1;
+            nQueenHelper(n, row + 1);
+        }
+
+        board[row][j] = 0;
+    }
+    return;
+}
+void placeNQueens(int n)
+{
+
+    memset(board, 0, 8 * 8 * sizeof(int));
+
+    nQueenHelper(n, 0);
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
-    int arr[] = {1, 2, 1};
-    vector<int> ds;
-    int sum = 0;
-    cout << subSequences(arr, 0, 3, ds, sum, 2);
+
+    int n;
+    cin >> n;
+
+    placeNQueens(n);
     return 0;
 }

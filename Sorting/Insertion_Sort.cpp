@@ -11,45 +11,44 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-// by shradhdha
-void insertionSort(int n, int arr[])
-{
-    for (int i = 1; i < n; i++)
-    {
-        int curr = arr[i];
-        int j = i - 1;
-        while (arr[j] > curr && j>=0)
-        {
-            arr[j + 1] = arr[j];
-            j--;
-        }
-        arr[j + 1] = curr;
-    }
-}
-
-// by babbar
+// // by shradhdha
 // void insertionSort(int n, int arr[])
 // {
 //     for (int i = 1; i < n; i++)
 //     {
-
-//         int temp = arr[i];
-//         int j;
-//         for (j = i - 1; j >= 0; j--)
+//         int curr = arr[i];
+//         int j = i - 1;
+//         while (arr[j] > curr && j>=0)
 //         {
-//             if (arr[j] > temp)
-//             {
-//                 arr[j + 1] = arr[j];
-//             }
-//             else
-//             {
-//                 break;
-//             }
+//             arr[j + 1] = arr[j];
+//             j--;
 //         }
-//         arr[j + 1] = temp;
+//         arr[j + 1] = curr;
 //     }
 // }
+
+// by babbar
+void insertionSort(int n, int arr[])
+{
+    for (int i = 1; i < n; i++)
+    {
+
+        int temp = arr[i];
+        int j;
+        for (j = i - 1; j >= 0; j--)
+        {
+            if (arr[j] > temp)
+            {
+                arr[j + 1] = arr[j];
+            }
+            else
+            {
+                break;
+            }
+        }
+        arr[j + 1] = temp;
+    }
+}
 
 int main(int argc, char const *argv[])
 {

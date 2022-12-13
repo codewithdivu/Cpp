@@ -10,7 +10,7 @@ int BinearySearching(int arr[], int size, int key)
     {
         int mid = (start + end) / 2;
 
-        if (mid == key)
+        if (arr[mid] == key)
         {
             return mid;
         }
