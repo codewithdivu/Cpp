@@ -1,52 +1,45 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool subSequences(int arr[], int sum, int index, int size, int key, vector<int> ds)
+int bs_in_nearly_sorted_arr(vector<int> arr, int target)
 {
-    if (index >= size)
+
+    int start = 0;
+    inti end = arr.size() - 1;
+
+    while (start <= end)
     {
-        if (sum == key)
+        int mid = start + (end - start) / 2;
+
+        if (arr[mid] == target)
         {
-            for (auto it : ds)
-            {
-                cout << it << " ";
-            }
-            cout << endl;
-            return true;
+            return mid;
+        }
+        if (arr[mid - 1] == target)
+        {
+            return mid - 1;
+        }
+        if (arr[mid + 1] == target)
+        {
+            return mid + 1;
+        }
+
+        if (target > arr[mid])
+        {
+            start = mid + 2;
         }
         else
-            return false;
+        {
+            end = mid - 2;
+        }
     }
-
-    // take
-    ds.push_back(arr[index]);
-    sum = sum + arr[index];
-
-    if (subSequences(arr, sum, index + 1, size, key, ds) == true)
-    {
-        return true;
-    }
-
-    // not-take
-    sum = sum - arr[index];
-    ds.pop_back();
-
-    if (subSequences(arr, sum, index + 1, size, key, ds) == true)
-    {
-        return true;
-    }
-
-
-    
-    return false;
+    return -1;
 }
 
 int main(int argc, char const *argv[])
 {
-    int arr[] = {1, 2, 1};
-    int key = 2;
-    vector<int> ds;
-    subSequences(arr, 0, 0, 3, key, ds);
-
+    vector<int> arr = {10, 3, 40, 20, 50, 80, 70};
+    int target = 40;
+    
     return 0;
 }

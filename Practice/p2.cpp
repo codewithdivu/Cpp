@@ -1,36 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int subSequences(int arr[], int sum, int index, int size, int key, int &count)
+int solve(int dividend, int divisor)
 {
-    if (index >= size)
+    int start = 0;
+    int end = dividend;
+    int ans = -1;
+
+    while (start <= end)
     {
-        if (sum == key)
+        int mid = start + (end - start) / 2;
+
+        if (mid * divisor == dividend)
         {
-            return 1;
+            return mid;
         }
-        return 0;
+        else if (mid * divisor > dividend)
+        {
+            end = mid - 1;
+        }
+        else if (mid * divisor < dividend)
+        {
+            ans = mid;
+            start = mid + 1;
+        }
     }
-
-    // take
-    sum = sum + arr[index];
-    int left = subSequences(arr, sum, index + 1, size, key, count);
-
-    // not-take
-    sum = sum - arr[index];
-    int right = subSequences(arr, sum, index + 1, size, key, count);
-
-    return left + right;
+    return ans;
 }
 
 int main(int argc, char const *argv[])
 {
-    int arr[] = {1, 2, 1};
-    int key = 2;
-    vector<int> ds;
-    int count = 0;
-    cout << subSequences(arr, 0, 0, 3, key, count);
+    int dividend = 22;
+    int divisor = 7;
 
-    // cout << "total is " << count << endl;
+    int ans = solve(dividend, divisor);
+    cout << "ans is " << ans << endl;
     return 0;
 }

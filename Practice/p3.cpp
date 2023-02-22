@@ -1,79 +1,14 @@
-include<bits / stdc++.h>
+#include <bits/stdc++.h>
+using namespace std;
 
-    using namespace std;
-
-int board[8][8];
-
-bool isPossible(int n, int row, int col)
+int solve(vector<int> arr)
 {
-    for (int i = row - 1; i >= 0; i--)
-    {
-        if (board[i][col] == 1)
-        {
-            return false;
-        }
-    }
-    for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--)
-    {
-        if (board[i][j] == 1)
-        {
-            return false;
-        }
-    }
-
-    for (int i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++)
-    {
-        if (board[i][j] == 1)
-        {
-            return false;
-        }
-    }
-
-    return true;
-}
-void nQueenHelper(int n, int row)
-{
-    if (row == n)
-    {
-
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < n; j++)
-            {
-                cout << board[i][j] << " ";
-            }
-        }
-        cout << endl;
-        return;
-    }
-
-    for (int j = 0; j < n; j++)
-    {
-
-        if (isPossible(n, row, j))
-        {
-            board[row][j] = 1;
-            nQueenHelper(n, row + 1);
-        }
-
-        board[row][j] = 0;
-    }
-    return;
-}
-void placeNQueens(int n)
-{
-
-    memset(board, 0, 8 * 8 * sizeof(int));
-
-    nQueenHelper(n, 0);
 }
 
-int main()
+int main(int argc, char const *argv[])
 {
-
-    int n;
-    cin >> n;
-
-    placeNQueens(n);
+    vector<int> arr = {1, 1, 2, 2, 3, 3, 4, 4, 3, 600, 600, 4, 4};
+    int ans = solve(arr);
+    cout << "answer is.... " << ans << endl;
     return 0;
 }
