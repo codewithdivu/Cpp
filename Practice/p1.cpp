@@ -1,50 +1,49 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class node
+class Node
 {
 public:
     int data;
-    node *left;
-    node *right;
+    Node *left;
+    Node *right;
 
-    node(int d)
+    Node(int val)
     {
-        this->data = d;
+        this->data = val;
         this->left = NULL;
         this->right = NULL;
     }
 };
 
-node *buildTree(node *root)
+Node *insertIntoBST(Node *&root, int data)
 {
-    cout << "enter data : " << endl;
-    int data;
-    cin >> data;
-    root = new node(data);
-
-    if (data == -1)
+    if (root == NULL)
     {
-        return NULL;
+        root = new Node(data);
+        return root;
     }
 
-    cout << "enter data for left child of " << data << endl;
-    root->left = buildTree(root->left);
-    cout << "enter data for right child of " << data << endl;
-    root->right = buildTree(root->right);
-
+    if (data > root->data)
+    {
+        root->right = insertIntoBST(root->left, data);
+    }
+    else if (data < root->data)
+    {
+        root->left = insertIntoBST(root->left, data);
+    }
     return root;
 }
 
-void levelOrderTraversal(node *root)
+void levelOrderTraversal(Node *root)
 {
-    queue<node *> q;
+    queue<Node *> q;
     q.push(root);
     q.push(NULL);
 
     while (!q.empty())
     {
-        node *temp = q.front();
+        Node *temp = q.front();
         q.pop();
 
         if (temp == NULL)
@@ -57,8 +56,8 @@ void levelOrderTraversal(node *root)
         }
         else
         {
-
             cout << temp->data << " ";
+
             if (temp->left)
             {
                 q.push(temp->left);
@@ -71,53 +70,20 @@ void levelOrderTraversal(node *root)
     }
 }
 
-void preOrder(node *root)
+int main(int argc, char const *argv[])
 {
-    if (root == NULL)
-    {
-        return;
-    }
-    cout << root->data << " ";
-    preOrder(root->left);
-    preOrder(root->right);
-}
-void postOrder(node *root)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    postOrder(root->left);
-    postOrder(root->right);
-    cout << root->data << " ";
-}
-void inOrder(node *root)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    inOrder(root->left);
-    cout << root->data << " ";
-    inOrder(root->right);
-}
+    Node *root = NULL;
 
-main(int argc, char const *argv[])
-{
-    node *root = NULL;
-
-    // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
-    root = buildTree(root);
+    insertIntoBST(root, 10);
+    insertIntoBST(root, 8);
+    insertIntoBST(root, 21);
+    insertIntoBST(root, 7);
+    insertIntoBST(root, 27);
+    insertIntoBST(root, 5);
+    insertIntoBST(root, 4);
+    insertIntoBST(root, 3);
 
     levelOrderTraversal(root);
-
-    cout << endl;
-    preOrder(root);
-    cout << endl;
-    inOrder(root);
-    cout << endl;
-    postOrder(root);
-    cout << endl;
 
     return 0;
 }
