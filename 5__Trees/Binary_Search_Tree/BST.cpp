@@ -42,6 +42,7 @@ void Inorder(node *root)
     Inorder(root->right);
 }
 
+// RECURSIVE WAY
 node *searchInBST(node *root, int key)
 {
     if (root == NULL)
@@ -59,6 +60,28 @@ node *searchInBST(node *root, int key)
     }
 
     return searchInBST(root->right, key);
+}
+
+bool *searchInBSTIterative(node *root, int key)
+{
+    node *temp = root;
+
+    while (temp != NULL)
+    {
+        if (temp->data == key)
+        {
+            return true;
+        }
+
+        if (temp->data > key)
+        {
+            temp = temp->left;
+        }
+        else
+        {
+            temp = temp->right;
+        }
+    }
 }
 
 int main(int argc, char const *argv[])
