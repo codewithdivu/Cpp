@@ -3,20 +3,40 @@ using namespace std;
 
 int gcd(int a, int b)
 {
-    while (a != b)
+    if (a == 0)
     {
-        if (a > b)
-            return gcd(a - b, b);
-        else
-            return gcd(a, b - a);
+        return b;
     }
-    return a;
+    if (b == 0)
+    {
+        return a;
+    }
+
+    if (a > b)
+    {
+        return gcd(a - b, b);
+    }
+    else
+    {
+        return gcd(b - a, a);
+    }
 }
+// int gcd(int a, int b)
+// {
+//     while (a != b)
+//     {
+//         if (a > b)
+//             return gcd(a - b, b);
+//         else
+//             return gcd(a, b - a);
+//     }
+//     return a;
+// }
 
 int main(int argc, char const *argv[])
 {
-    int a = 10;
-    int b = 50;
+    int a = 72;
+    int b = 24;
     cout << "GCD is " << gcd(a, b) << endl;
     return 0;
 }

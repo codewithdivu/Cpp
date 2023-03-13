@@ -156,7 +156,48 @@ bool *searchInBSTIterative(node *root, int key)
     }
 }
 
-// levelorder traversal
+// traversal
+
+// PREORDER TRAVERSAL
+
+void preOrder(struct node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    cout << root->data << " ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
+// POSTORDER TRAVERSAL
+
+void postOrder(struct node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    postOrder(root->left);
+    postOrder(root->right);
+    cout << root->data << " ";
+}
+
+// INORDER TRAVERSAL
+
+void inOrder(struct node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    inOrder(root->left);
+    cout << root->data << " ";
+    inOrder(root->right);
+}
+
+// LEVELORDER TRAVERSAL
 void levelOrderTraversal(Node *root)
 {
     queue<Node *> q;
