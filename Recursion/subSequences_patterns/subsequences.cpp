@@ -31,7 +31,7 @@ void subSequences(int arr[], vector<int> &ds, int index, int size)
 
 int main(int argc, char const *argv[])
 {
-    int arr[] = {3, 1, 2};
+    int arr[] = {1, 2, 3};
     vector<int> ds;
 
     subSequences(arr, ds, 0, 3);
