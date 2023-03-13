@@ -1,23 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct node
+class node
 {
+public:
     int data;
-    struct node *left;
-    struct node *right;
+    node *left;
+    node *right;
 
     node(int val)
     {
-        data = val;
-        left = NULL;
-        right = NULL;
+        this->data = val;
+        this->left = NULL;
+        this->right = NULL;
     }
 };
 
 int main(int argc, char const *argv[])
 {
-    struct node *root = new node(1);
+    node *root = new node(1);
 
     root->left = new node(2);
     root->right = new node(3);

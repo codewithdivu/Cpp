@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// CREATION OF CLASS STACK 
+// CREATION OF CLASS STACK
 
 class Stack
 {
