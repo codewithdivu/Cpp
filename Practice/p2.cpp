@@ -1,30 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isSorted(int arr[],int size){
-    if(size == 0 || size == 1){
-        return true;
-    }
-    if(arr[0] > arr[1]){
-        return false;
-    }
-
-    return isSorted(arr+1,size-1);
+void quickSort(int arr[], inti start, int end)
+{
+    
 }
-
 
 int main(int argc, char const *argv[])
 {
-    int arr[] = {1, 2, 4, 6, 88, 9};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    int arr[10] = {2, 4, 1, 6, 9, 9, 9, 9, 9, 9};
+    int n = 10;
 
-    if (isSorted(arr, size))
+    quickSort(arr, 0, n - 1);
+
+    for (int i = 0; i < n; i++)
     {
-        cout << "Array is Sorted" << endl;
+        cout << arr[i] << " ";
     }
-    else
-    {
-        cout << "Not Sorted" << endl;
-    }
+    cout << endl;
+
     return 0;
 }
