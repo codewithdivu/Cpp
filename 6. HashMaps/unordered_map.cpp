@@ -18,3 +18,13 @@ int main(int argc, char const *argv[])
 |   Find/Remove Value   |	--              |
 ---------------------------------------------
 */
+
+/*
+                           ---> Value
+                          |
+                          |
+    unordered_map<int, string> umap;
+                   |            |
+                   |            |
+                   --> Key      ----> Map name
+*/

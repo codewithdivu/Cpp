@@ -18,3 +18,13 @@ int main(int argc, char const *argv[])
 |   Find/Remove Value   |	O(log(n))       |
 ---------------------------------------------
 */
+
+/*
+                           ----> Value
+                           |
+                           |
+                map<int, string> umap;
+                    |            |
+                    |            |
+                    --> Key      ----> Map name
+*/
