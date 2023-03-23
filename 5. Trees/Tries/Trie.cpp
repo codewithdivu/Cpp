@@ -40,8 +40,8 @@ public:
             root->isTerminal = true; // making last node to terminal node
             return;
         }
-        // assumption -> ord will be in capital(CAPS)
-        int index = word[0] - 'A';
+        int index = word[0] - 'a';
+        cout << index << " ";
 
         TrieNode *child;
 
@@ -74,7 +74,7 @@ public:
             return root->isTerminal;
         }
 
-        int index = word[0] - 'A';
+        int index = word[0] - 'a';
         TrieNode *child;
 
         // present
@@ -101,12 +101,9 @@ public:
 int main(int argc, char const *argv[])
 {
     Trie *t = new Trie();
-    t->insertWord("ARM");
-    t->insertWord("DO");
-    t->insertWord("TIME");
-    t->insertWord("DUCK");
+    t->insertWord("abz");
 
-    cout << "present or Not " << t->searchWord("TIM") << endl;
+    cout << "present or Not " << t->searchWord("abz") << endl;
 
     return 0;
 }
