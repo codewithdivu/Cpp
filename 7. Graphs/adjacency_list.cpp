@@ -60,9 +60,9 @@ int main(int argc, char const *argv[])
 
         // creating undirected graph
         g.addEdge(u, v, 0);
-
-        g.printGraph();
     }
+    g.printGraph();
+
     return 0;
 }
 
