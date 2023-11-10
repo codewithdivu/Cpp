@@ -17,7 +17,9 @@ int solve(vector<int> &arr, int target)
     {
         int ans = solve(arr, target - arr[i]);
         if (ans != INT_MAX)
+        {
             mini = min(mini, ans + 1);
+        }
     }
     return mini;
 }

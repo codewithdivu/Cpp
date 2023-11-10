@@ -51,11 +51,9 @@ node *InsertAtEnd(node *head, int val)
 {
     node *newNode = new node(val);
     node *p = head;
-    // node *q = head->prev;
     while (p->next != NULL)
     {
         p = p->next;
-        // q=q->next;
     }
     p->next = newNode;
     newNode->prev = p;
@@ -65,7 +63,29 @@ node *InsertAtEnd(node *head, int val)
 node *InsertAfterNode(node *head, node *preNode, int val)
 {
     node *newNode = new node(val);
-    
+}
+
+node *deleteAtHead(node *head)
+{
+    node *temp = head;
+    head = head->next;
+    head->prev = NULL;
+    free(temp);
+    return head;
+}
+
+node *deleteAtEnd(node *head)
+{
+    node *temp = head;
+    node *femp = temp->next;
+    while (femp->next != NULL)
+    {
+        temp = temp->next;
+        femp = femp->next;
+    }
+    femp->prev = NULL;
+    temp->next = NULL;
+    return head;
 }
 
 int main(int argc, char const *argv[])

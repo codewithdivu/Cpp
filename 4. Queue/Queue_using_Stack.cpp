@@ -14,7 +14,7 @@ public:
     bool isEmpty()
     {
         if (s1.empty() && s2.empty())
-        {   
+        {
             return true;
         }
         return false;

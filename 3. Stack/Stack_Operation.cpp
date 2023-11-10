@@ -46,6 +46,7 @@ void Stack::push(int x)
     if (isFull())
     {
         cout << "Stack is overFlow" << endl;
+        return;
     }
     top++;
     arr[top] = x;

@@ -154,6 +154,7 @@ bool *searchInBSTIterative(node *root, int key)
             temp = temp->right;
         }
     }
+    return false;
 }
 
 // traversal

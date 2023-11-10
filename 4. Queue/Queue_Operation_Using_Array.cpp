@@ -46,6 +46,7 @@ void Queue::Enqueue(int x)
     if (isFull())
     {
         cout << "Queue is OverFlow" << endl;
+        return;
     }
     back++;
     arr[back] = x;
