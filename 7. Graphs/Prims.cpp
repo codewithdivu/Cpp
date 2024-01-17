@@ -2,8 +2,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using namespace std;
-
 void print(vector<pair<int, int>> adj[], int nodes)
 {
     for (int i = 0; i < nodes; i++)
