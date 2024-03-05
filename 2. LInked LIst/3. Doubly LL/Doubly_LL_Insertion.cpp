@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// CREATION A CLASS NODE
 
 class node
 {
@@ -18,7 +17,6 @@ public:
     }
 };
 
-// TRAVERSAL OF DOUBLY LINKED LIST
 
 void Traversal(node *head)
 {
@@ -60,33 +58,62 @@ node *InsertAtEnd(node *head, int val)
     return head;
 }
 
+// INSERTION A NODE AFTER A NODE IN DOUBLY LINKED LIST
+
 node *InsertAfterNode(node *head, node *preNode, int val)
 {
-    node *newNode = new node(val);
-}
-
-node *deleteAtHead(node *head)
-{
-    node *temp = head;
-    head = head->next;
-    head->prev = NULL;
-    free(temp);
-    return head;
-}
-
-node *deleteAtEnd(node *head)
-{
-    node *temp = head;
-    node *femp = temp->next;
-    while (femp->next != NULL)
-    {
-        temp = temp->next;
-        femp = femp->next;
+    if(preNode == NULL){
+        return NULL;
     }
-    femp->prev = NULL;
-    temp->next = NULL;
+    node *newNode = new node(val);
+    newNode->next = preNode->next;
+    newNode->prev = preNode;
+
+    if(preNode->next != NULL){
+        preNode->next->prev = newNode;
+    }
+    preNode->next = newNode;
     return head;
 }
+
+// INSERTION A NODE AT PARTICULAR INDEX IN DOUBLY LINKED LIST
+
+node *InsertAtIndex(node *head, int index, int val)
+{
+    if (index < 0) {
+        return head;
+    }
+    
+    node *newNode = new node(val);
+    if (index == 0) {
+        newNode->next = head;
+        if (head != NULL) {
+            head->prev = newNode;
+        }
+        return newNode;
+    }
+    
+    node *current = head;
+    int currentIndex = 0;
+    while (current != NULL && currentIndex < index - 1) {
+        current = current->next;
+        currentIndex++;
+    }
+    
+    if (current == NULL) {
+        return head; 
+    }
+    
+    newNode->next = current->next;
+    newNode->prev = current;
+    if (current->next != NULL) {
+        current->next->prev = newNode;
+    }
+    current->next = newNode;
+    
+    return head;
+}
+
 
 int main(int argc, char const *argv[])
 {
