@@ -25,20 +25,12 @@ public:
 
 bool Queue ::isFull()
 {
-    if (back == n - 1)
-    {
-        return true;
-    }
-    return false;
+    return back == size - 1;
 }
 
 bool Queue ::isEmpty()
 {
-    if (front == -1 || front > back)
-    {
-        return true;
-    }
-    return false;
+    return front == -1;;
 }
 
 void Queue::Enqueue(int x)
